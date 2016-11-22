@@ -1,2 +1,4 @@
-# Automatic-answer
-A Script to automaticly answer the questions in 10.13.54.81
+# 大英网络课程自动答题脚本
+本脚本只适用于10.13.54.81
+
+还在考虑使用什么存储数据中。。

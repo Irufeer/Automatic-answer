@@ -49,7 +49,7 @@ def answer(BookID):
 
     lines = book.readlines()
     for line in lines:
-        if line[0] == '#':
+        if line[0] == '#' or line == '':
             continue
         content   = line.split()
         URL       = content[0]
@@ -74,72 +74,55 @@ def answer(BookID):
         English_session.post(main_url + "/book/book25/jdls3ajax.php", data=payload)
         url = main_url + "/book/book%d/unit_index.php?UnitID=" % BookID + UnitID
         English_session.get(url)
+        base_data = {
+            'UnitID': UnitID,
+            'SectionID': SectionID,
+            'SisterID': SisterID,
+            'TestID': TestID,
+            'KidID': '1',
+        }
         if TestID == '2.1':
-            answer_data = {
-                'UnitID': UnitID,
-                'SectionID': SectionID,
-                'SisterID': SisterID,
-                'TestID': TestID,
+            answer_data = dict(base_data.items()+{
                 'KidID': KidID,
                 'ItemID': ItemID,
                 Item_N: Answer,
-            }
+            }.items())
         elif TestID == '2.2' or TestID == '2.3':
             item = [('Item_'+ItemID)]*5
             for i in range(1,5):
                 item[i] = 'Item_' + str(int(ItemID)+i)
-            answer_data = {
-                'SectionID': SectionID,
-                'UnitID': UnitID,
-                'SisterID': SisterID,
-                'TestID': TestID,
-                'KidID': KidID,
+            answer_data = dict(base_data.items()+{
                 'ItemID': '',
                 item[0]: Answer[0],
                 item[1]: Answer[1],
                 item[2]: Answer[2],
                 item[3]: Answer[3],
                 item[4]: Answer[4],
-            }
+            }.items())
         elif TestID == '2.4':
             answer = line.find('answer:')
             answer = line[answer+7:].split('#')
-            answer_data = {
-                'UnitID': UnitID,
-                'SectionID': SectionID,
-                'SisterID': SisterID,
-                'TestID': TestID,
-                'KidID': KidID,
+            answer_data = dict(base_data.items()+{
                 'ItemID': ItemID,
                 'Item_0':answer[0],
                 'Item_1': answer[1],
                 'Item_2': answer[2],
                 'Item_3': answer[3],
                 'Item_4': answer[4],
-            }
+            }.items())
         elif TestID == '5.1' or TestID == '5.2':
-            answer_data = {
-                'SectionID': SectionID,
-                'UnitID': UnitID,
-                'SisterID': SisterID,
-                'TestID': TestID,
-                'KidID': KidID,
+            answer_data = dict(base_data.items()+{
                 'ItemID': ItemID,
                 'Item_1': Answer[0],
                 'Item_2': Answer[1],
                 'Item_3': Answer[2],
                 'Item_4': Answer[3],
                 'Item_5': Answer[4],
-            }
+            }.items())
         elif TestID == '5.3':
             answer = line.find('answer:')
             answer = line[answer + 7:].split('#')
-            answer_data = {
-                'UnitID': UnitID,
-                'SectionID': SectionID,
-                'SisterID': SisterID,
-                'TestID': TestID,
-                'KidID': KidID,
+            answer_data = dict(base_data.items()+{
                 'ItemID': ItemID,
                 'Item_0': answer[0],
                 'Item_1': answer[1],
@@ -151,7 +134,8 @@ def answer(BookID):
                 'Item_7': answer[7],
                 'Item_8': answer[8],
                 'Item_9': answer[9],
-            }
+            }.items())
+
         # Submit answers
         English_session.post(URL, data=answer_data, headers=post_headers)
 

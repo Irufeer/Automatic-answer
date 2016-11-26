@@ -1,0 +1,3 @@
+# URL/UnitID/SectionID/SisterID/TestID/KidID/ItemID/Answer
+# Unit6
+http://10.13.54.81/book/book41/dj31checkbox.php 6 3 1 3.1 1 150 {'Item_0':'1','Item_1':'1','Item_4':'1'}

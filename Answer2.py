@@ -14,6 +14,7 @@ user_agent = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) "
               "AppleWebKit/537.36 (KHTML, like Gecko) "
               "Chrome/36.0.1985.143 Safari/537.36")
 
+
 def signin(username, password):
     English_session.get(main_url)
     login_url = main_url + '/index.php?Horizon=' + English_session.cookies['Horizon']
@@ -43,13 +44,13 @@ def answer(BookID):
     English_session.get(main_url + '/book/book%d/index.php?Quiz=N&whichActionPage=' % BookID)
 
     #choose the book
-    if BookID == 25:
-        book = open('Books/TSJC3.txt', 'r')
+    if BookID == 41:
+        book = open('Books/STSJC3.txt', 'r')
 
 
     lines = book.readlines()
     for line in lines:
-        if line[0] == '#' or line == '':
+        if line == '' or line[0] == '#':
             continue
         content   = line.split()
         URL       = content[0]
@@ -154,4 +155,4 @@ if __name__ == "__main__":
     signin(username, password)
 
 
-    answer(25)
+    answer(41)

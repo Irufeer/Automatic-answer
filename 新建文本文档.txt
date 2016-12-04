@@ -1,0 +1,85 @@
+# Unit1
+http://10.13.54.81/book/book25/dj21.php 1 1 3 C
+http://10.13.54.81/book/book25/dj21.php 1 2 4 C
+http://10.13.54.81/book/book25/dj21.php 1 3 5 C
+http://10.13.54.81/book/book25/dj21.php 1 4 6 C
+http://10.13.54.81/book/book25/dj21.php 1 5 7 C
+http://10.13.54.81/book/book25/dj21.php 1 6 8 C
+http://10.13.54.81/book/book25/dj21.php 1 7 9 C
+http://10.13.54.81/book/book25/dj21.php 1 8 10 C
+http://10.13.54.81/book/book25/dj21.php 1 9 11 C
+http://10.13.54.81/book/book25/dj21.php 1 10 12 C
+http://10.13.54.81/book/book25/dj22.php 1 1 13 ACBBD
+http://10.13.54.81/book/book25/dj23.php 1 1 18 ACBBD
+http://10.13.54.81/book/book25/dj24.php 1 1 23 answer:a journalism degree#pretty good#about what she has#you just want more#protective of his family
+http://10.13.54.81/book/book25/dj51.php 1 1 35 CCADB
+http://10.13.54.81/book/book25/dj52.php 1 1 36 ACDCD
+http://10.13.54.81/book/book25/dj53.php 1 1 37 answer:slice#misunderstandings#beautiful#benefits#wellness#range#explicit#has been tracking more than a million sujects since 1979#have fewer heart attacks and lower cancer rates#a strong sense of connection to others and in satisfying relationship
+# Unit6
+http://10.13.54.81/book/book25/dj21.php 6 1 199 D
+http://10.13.54.81/book/book25/dj21.php 6 2 200 D
+http://10.13.54.81/book/book25/dj21.php 6 3 201 D
+http://10.13.54.81/book/book25/dj21.php 6 4 202 B
+http://10.13.54.81/book/book25/dj21.php 6 5 203 C
+http://10.13.54.81/book/book25/dj21.php 6 6 204 A
+http://10.13.54.81/book/book25/dj21.php 6 7 205 C
+http://10.13.54.81/book/book25/dj21.php 6 8 206 C
+http://10.13.54.81/book/book25/dj21.php 6 9 207 A
+http://10.13.54.81/book/book25/dj21.php 6 10 208 C
+http://10.13.54.81/book/book25/dj22.php 6 1 209 ACBBD
+http://10.13.54.81/book/book25/dj23.php 6 1 214 CDCDA
+http://10.13.54.81/book/book25/dj24.php 6 1 219 answer:Islamabad#a tall Islamabad building#the Kashmirian Mountains#a heavily militarized region#India
+http://10.13.54.81/book/book25/dj51.php 6 1 239 ABCDA
+http://10.13.54.81/book/book25/dj52.php 6 1 240 AABDA
+http://10.13.54.81/book/book25/dj53.php 6 1 241 answer:thickness#frightened#swallowed#disappeared#floods#revisit#landslide#keep us away from mountains the rest of our lives#something like the Yellowstone earthquake does not happen very often#few of us will suffer because of such a disaster
+# Unit7
+http://10.13.54.81/book/book25/dj21.php 7 1 245 C
+http://10.13.54.81/book/book25/dj21.php 7 2 246 A
+http://10.13.54.81/book/book25/dj21.php 7 3 247 C
+http://10.13.54.81/book/book25/dj21.php 7 4 248 B
+http://10.13.54.81/book/book25/dj21.php 7 5 249 D
+http://10.13.54.81/book/book25/dj21.php 7 6 250 A
+http://10.13.54.81/book/book25/dj21.php 7 7 251 B
+http://10.13.54.81/book/book25/dj21.php 7 8 252 B
+http://10.13.54.81/book/book25/dj21.php 7 9 253 A
+http://10.13.54.81/book/book25/dj21.php 7 10 254 C
+http://10.13.54.81/book/book25/dj22.php 7 1 255 ABBCD
+http://10.13.54.81/book/book25/dj23.php 7 1 260 AADCB
+http://10.13.54.81/book/book25/dj24.php 7 1 265 answer:The Day to Day.#To try to go after the online music business.#Apple.#It has been negotiating licenses for songs.#Gates' leaving will benefit it.
+http://10.13.54.81/book/book25/dj51.php 7 1 282 DCDDA
+http://10.13.54.81/book/book25/dj52.php 7 1 283 DCBCA
+http://10.13.54.81/book/book25/dj53.php 7 1 284 answer:industry#option#preferable#starve#blame#occupations#force#But if we admit tradition more than we should#insist on trying to plot the future by the past#to accept the help which tradition can bring
+# Unit8
+http://10.13.54.81/book/book25/dj21.php 8 1 288 B
+http://10.13.54.81/book/book25/dj21.php 8 2 289 D
+http://10.13.54.81/book/book25/dj21.php 8 3 290 C
+http://10.13.54.81/book/book25/dj21.php 8 4 291 A
+http://10.13.54.81/book/book25/dj21.php 8 5 292 A
+http://10.13.54.81/book/book25/dj21.php 8 6 293 A
+http://10.13.54.81/book/book25/dj21.php 8 7 294 C
+http://10.13.54.81/book/book25/dj21.php 8 8 295 C
+http://10.13.54.81/book/book25/dj21.php 8 9 296 A
+http://10.13.54.81/book/book25/dj21.php 8 10 297 B
+http://10.13.54.81/book/book25/dj22.php 8 1 298 AADDC
+http://10.13.54.81/book/book25/dj23.php 8 1 303 DCABC
+http://10.13.54.81/book/book25/dj24.php 8 1 308 answer:human beings#maternal twins#genes that cause disease#many diseases#an environmental component
+http://10.13.54.81/book/book25/dj51.php 8 1 322 BCBCD
+http://10.13.54.81/book/book25/dj52.php 8 1 323 CABCC
+http://10.13.54.81/book/book25/dj53.php 8 1 324 answer:ethics#prediction#technique#adapted#artificial#urgent#inconsistencies#"Genetic engineering is very exciting and important technology"#but you have to ask fundamental questions before it is too late#the way the technology is racing far ahead of public understanding
+# Unit9
+http://10.13.54.81/book/book25/dj21.php 9 1 328 B
+http://10.13.54.81/book/book25/dj21.php 9 2 329 D
+http://10.13.54.81/book/book25/dj21.php 9 3 330 A
+http://10.13.54.81/book/book25/dj21.php 9 4 331 C
+http://10.13.54.81/book/book25/dj21.php 9 5 332 A
+http://10.13.54.81/book/book25/dj21.php 9 6 333 B
+http://10.13.54.81/book/book25/dj21.php 9 7 334 C
+http://10.13.54.81/book/book25/dj21.php 9 8 335 C
+http://10.13.54.81/book/book25/dj21.php 9 9 336 D
+http://10.13.54.81/book/book25/dj21.php 9 10 337 D
+http://10.13.54.81/book/book25/dj22.php 9 1 338 ABDCD
+http://10.13.54.81/book/book25/dj23.php 9 1 343 DDACA
+http://10.13.54.81/book/book25/dj24.php 9 1 348 answer:her benefits were fabulous#really, really tough#got a part-time job#online#lazy
+http://10.13.54.81/book/book25/dj51.php 9 1 365 CABBC
+http://10.13.54.81/book/book25/dj52.php 9 1 366 DCCCB
+http://10.13.54.81/book/book25/dj53.php 9 1 367 answer:university#expect#marriage#mature#exaggerating#Undergraduates#candidates#The answer to whether or not marriage in school should be allowed#As for those who are attending universities at an older age#the marriage of some unergraduates will inevitably influence  other students

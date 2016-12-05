@@ -1,3 +1,39 @@
-# URL/UnitID/SectionID/SisterID/TestID/KidID/ItemID/Answer
+# URL/UnitID/TestID/KidID/ItemID/Answer
 # Unit6
-http://10.13.54.81/book/book41/dj31checkbox.php 6 3 1 3.1 1 150 {'Item_0':'1','Item_1':'1','Item_4':'1'}
+http://10.13.54.81/book/book41/dj31checkbox.php      ##6##3.1##1##150##{'Item_0':'1','Item_1':'1','Item_4':'1'}
+http://10.13.54.81/book/book41/dj34mc.php            ##6##3.2##1##151##{'Item_0':'b','Item_1':'c','Item_2':'a','Item_3':'b','Item_4':'d'}
+http://10.13.54.81/book/book41/dj32blank.php         ##6##3.3##1##154##{'Item_0_0':"I don't like cycling",'Item_0_1':'do something good','Item_0_2':'sit on a couch','Item_0_3':'and with two legs','Item_0_4':'life on the road','Item_0_5':'throw the bike','Item_0_6':"It's been different",'Item_0_7':'performing marvellously'}
+http://10.13.54.81/book/book41/dj41blank.php         ##6##4.2##1##157##{'Item_0_0':'there were few injuries','Item_1_0':'catch fire','Item_2_0':'made a successful landing','Item_3_0':'taking in water','Item_4_0':'helped into the boats','Item_5_0':'were taken to hospitals','Item_6_0':'as a hero','Item_7_0':'without any engines'}
+http://10.13.54.81/book/book41/dj42checkbox.php      ##6##4.5##1##159##{'Item_0':'1','Item_4':'1','Item_6':'1'}
+# Unit7
+http://10.13.54.81/book/book41/dj31checkbox.php      ##7##3.1##1##166##{'Item_0':'1','Item_3':'1','Item_4':'1','Item_6':'1','Item_9':'1','Item_10':'1','Item_12':'1','Item_13':'1','Item_14':'1','Item_18':'1','Item_22':'1','Item_23':'1'}
+http://10.13.54.81/book/book41/dj34mc.php            ##7##3.2##1##167##{'Item_0':'a','Item_1':'d','Item_2':'c','Item_3':'a','Item_4':'d'}
+http://10.13.54.81/book/book41/dj32blank.php         ##7##3.3##1##168##{'Item_0_0':'areas of life','Item_0_1':'in our homes','Item_0_2':'computer-controlled houses','Item_0_3':'adjust the temperature','Item_0_4':'give new instructions','Item_0_5':'react to match','Item_0_6':'TV and Internet','Item_0_7':'outside changes','Item_0_8':'stop too much sun from entering','Item_0_9':'turn the oven on'}
+http://10.13.54.81/book/book41/dj42checkbox.php      ##7##4.1##1##170##{'Item_0':'1','Item_2':'1','Item_3':'1','Item_5':'1'}
+http://10.13.54.81/book/book41/dj41blank.php         ##7##4.2##1##171##{'Item_0_0':'dunking biscuits','Item_1_0':'held together','Item_2_0':'absorb liquid','Item_3_0':'travel through','Item_4_0':'hold the biscuit','Item_5_0':'producing a table'}
+http://10.13.54.81/book/book41/dj45checkboxTable.php ##7##4.4##1##172##{'Item_0_1':'1','Item_1_1':'1','Item_2_2':'1','Item_3_1':'1','Item_4_2':'1','Item_5_1':'1','Item_6_2':'1','Item_7_1':'1'}
+http://10.13.54.81/book/book41/dj44mc.php            ##7##4.5##1##173##{'Item_0':'b','Item_1':'b','Item_2':'d','Item_3':'a','Item_4':'c','Item_5':'a'}
+# Unit8
+http://10.13.54.81/book/book41/dj32blank.php         ##8##3.1##1##181##{'Item_0_0':'lunar','Item_1_0':'happiness','Item_2_0':'bamboo','Item_2_1':'blossoms','Item_3_0':'happiness','Item_3_1':'togetherness','Item_3_2':'strong','Item_4_0':'long'}
+http://10.13.54.81/book/book41/dj32blank.php         ##8##3.2##1##182##{'Item_0_0':'so the exact date','Item_1_0':'lasts for 15 days','Item_2_0':'to send out the old year','Item_3_0':'for the coming year','Item_4_0':'red envelopes of money','Item_5_0':'cleaning the house completely','Item_6_0':'flowers will turn into fruit','Item_7_0':'A whole fish','Item_8_0':'during this holiday'}
+http://10.13.54.81/book/book41/dj32blank.php         ##8##3.3##1##183##{'Item_0_0':"they're very generous",'Item_1_0':'South Korea','Item_2_0':'a family setting','Item_3_0':'get your own plate','Item_3_1':'dig in together','Item_4_0':'Asian','Item_4_1':'Americans','Item_5_0':'American kids','Item_6_0':'what customs they like','Item_7_0':'Korea'}
+http://10.13.54.81/book/book41/dj34mc.php            ##8##3.4##1##184##{'Item_0':'c','Item_1':'c','Item_2':'a','Item_3':'c','Item_4':'c','Item_5':'d'}
+http://10.13.54.81/book/book41/dj42checkbox.php      ##8##4.1##1##186##{'Item_1':'1','Item_4':'1','Item_5':'1'}
+http://10.13.54.81/book/book41/dj41blank.php         ##8##4.2##1##187##{'Item_0_0':'making a guy','Item_1_0':'burn him','Item_2_0':'start of the 17th century','Item_3_0':'beneath Parliament','Item_4_0':'he was trying to light','Item_5_0':'which they did','Item_6_0':'no reason','Item_7_0':'started building'}
+http://10.13.54.81/book/book41/dj45checkboxTable.php ##8##4.4##1##188##{'Item_0_1':'1','Item_1_2':'1','Item_2_2':'1','Item_3_3':'1','Item_4_3':'1','Item_5_1':'1','Item_6_2':'1','Item_7_1':'1'}
+http://10.13.54.81/book/book41/dj42drag.php          ##8##4.5##1##189##{'myList':'2^0^1^5^3^4'}
+# Unit9
+http://10.13.54.81/book/book41/dj32blank.php         ##9##3.1##1##197##{'Item_0_0':'Elizabeth','Item_1_0':'George','Item_2_0':'George','Item_3_0':'Victoria'}
+http://10.13.54.81/book/book41/dj34mc.php            ##9##3.2##1##198##{'Item_0':'b','Item_1':'b','Item_2':'d','Item_3':'a','Item_4':'b','Item_5':'c'}
+http://10.13.54.81/book/book41/dj44dragOne.php       ##9##4.1##1##201##{'myList':'4^0^3^5^2^1'}
+http://10.13.54.81/book/book41/dj45checkboxTable.php ##9##4.2##1##202##{'Item_0_2':'1','Item_1_1':'1','Item_2_1':'1','Item_2_2':'1','Item_2_4':'1','Item_3_3':'1','Item_4_4':'1'}
+http://10.13.54.81/book/book41/dj41blank.php         ##9##4.3##1##203##{'Item_0_0':'attractive, powerful','Item_0_1':'attractive, powerful','Item_1_0':'to think of','Item_2_0':'much too long','Item_3_0':'meaning very small','Item_4_0':'the best or the strongest','Item_5_0':'most romantic lovers','Item_6_0':'sound luxurious'}
+http://10.13.54.81/book/book41/dj42checkbox.php      ##9##4.4##1##204##{'Item_2':'1','Item_3':'1','Item_5':'1'}
+http://10.13.54.81/book/book41/dj44mc.php            ##9##4.5##1##205##{'Item_0':'c','Item_1':'b','Item_2':'c','Item_3':'a','Item_4':'d'}
+# Unit10
+http://10.13.54.81/book/book41/dj31checkbox.php      ##10##3.1##1##212##{'Item_0':'1','Item_2':'1','Item_3':'1'}
+http://10.13.54.81/book/book41/dj34mc.php            ##10##3.2##1##213##{'Item_0':'a','Item_1':'a','Item_2':'a','Item_3':'a','Item_4':'b','Item_5':'b'}
+http://10.13.54.81/book/book41/dj32blank.php         ##10##3.3##1##216##{'Item_0_0':'is based on a famous hoax','Item_0_1':'would pass in front of','Item_0_2':'at that moment','Item_0_3':'the world was destroyed by a flood','Item_0_4':'It is believed to be','Item_0_5':'announced on the radio','Item_0_6':'snow on the top of','Item_0_7':"may or may not be Noah's Ark",'Item_0_8':'we want to believe them'}
+http://10.13.54.81/book/book41/dj45checkboxTable.php ##10##4.1##1##218##{'Item_0_4':'1','Item_1_1':'1','Item_1_2':'1','Item_1_3':'1','Item_2_5':'1','Item_2_6':'1','Item_3_4':'1','Item_4_3':'1','Item_5_1':'1','Item_6_5':'1','Item_7_5':'1'}
+http://10.13.54.81/book/book41/dj41blank.php         ##10##4.2##1##219##{'Item_0_0':'the huge differences','Item_1_0':'there was only darkness','Item_2_0':'there was light','Item_3_0':'a small island','Item_4_0':'Mother Earth','Item_5_0':'a bird','Item_6_0':'the sun, and the earth','Item_7_0':'creation myth at all'}
+http://10.13.54.81/book/book41/dj44mc.php            ##10##4.4##1##220##{'Item_0':'b','Item_1':'c','Item_2':'d','Item_3':'b','Item_4':'d'}

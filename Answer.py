@@ -27,11 +27,18 @@ def signin(username, password):
     }
 
     # Sign in
-    English_session.post(login_url, data=login_data, headers=login_headers)
+    res = English_session.post(login_url, data=login_data, headers=login_headers)
+    if res.text.find('Loading') != -1:
+        print 'Login successfully !\n'
+    else:
+        print 'Wrong StudentID or Password !'
+        name = raw_input("Please input your StudentID again: ")
+        pwd = getpass.getpass("Please input your Password(Hided) again: ")
+        signin(name, pwd)
 
 
 
-def answer(BookID):
+def TSanswer(BookID):
     response = English_session.get(main_url + '/login/nsindex_student.php')
     pattern = 'BID=%d&CID=(.*?)&Quiz=N">.*?' % BookID
     CID = re.findall(pattern, response.text, re.S)
@@ -143,15 +150,86 @@ def answer(BookID):
     # Finish and close the book
     book.close()
 
+def STSanswer(BookID):
+    response = English_session.get(main_url + '/login/nsindex_student.php')
+    pattern = 'BID=%d&CID=(.*?)&Quiz=N">.*?' % BookID
+    CID = re.findall(pattern, response.text, re.S)
+    book_url = main_url + '/book/index.php?BID=%d&CID=' % BookID + CID[0][0] + CID[0][1] + CID[0][2] + CID[0][3] + '&Quiz=N'
 
+    # Open the book
+    English_session.get(book_url)
+    English_session.get(main_url + '/template/loggingajax.php?whichURL=/login/nsindex_student.php')
+    English_session.get(main_url + '/book/book%d/index.php?Quiz=N&whichActionPage=' % BookID)
+
+    #choose the book
+    if BookID == 41:
+        book = open('Books/STSJC3.txt', 'r')
+
+
+    lines = book.readlines()
+    for line in lines:
+        if line == '' or line[0] == '#':
+            continue
+        content   = line.split('##')
+        URL       = content[0].strip()
+        UnitID    = content[1]
+        TestID    = content[2]
+        SectionID = TestID[0]
+        SisterID  = TestID[2]
+        KidID     = content[3]
+        ItemID    = content[4]
+        Answer    = content[5]
+
+        payload = {
+            'whichAction': 'checkMyProgress',
+            'whichUnitID': UnitID,
+            'whichTestID': ''
+        }
+        post_headers = {
+            'User-Agent': user_agent,
+            'Referer': URL,
+        }
+        English_session.post(main_url + "/book/book%d/nslsajax.php" % BookID, data=payload)
+        url = main_url + "/book/book%d/unit_index.php?UnitID=" % BookID + UnitID
+        English_session.get(url)
+        base_data = {
+            'UnitID': UnitID,
+            'SectionID': SectionID,
+            'SisterID': SisterID,
+            'TestID': TestID,
+            'KidID': KidID,
+            'ItemID': ItemID,
+        }
+        answer_data = dict(base_data.items()+eval(Answer).items())
+
+        # Submit answers
+        English_session.post(URL, data=answer_data, headers=post_headers)
+
+
+    # Finish and close the book
+    book.close()
 
 if __name__ == "__main__":
-    English_session = requests.Session()
     username = raw_input("Please input your StudentID: ")
-    # password = getpass.getpass("Please input your Password(Hided): ")
-    password = raw_input("Please input your Password: ")
-    # BookID = int(raw_input("Choose the book with BookID: "))
+    password = getpass.getpass("Please input your Password(Hided): ")
+    # password = raw_input("Please input your Password: ")
+
+    # Login in
+    English_session = requests.Session()
     signin(username, password)
 
+    print '23.TSJC1 24.TSJC2 25.TSJC3 26.TSJC4\n'
+    print '39.STSJC1 40.STSJC2 41.STSJC3 42.STSJC4\n'
+    try:
+        num = raw_input("Choose the book with BookID: ")
+        BookID = int(num)
+        if BookID < 23 or 26 < BookID and BookID < 39 or BookID > 42:
+            raise ValueError('Invalid value')
+    except ValueError, e:
+        print 'Invalid value ! Please run again !'
+        exit()
 
-    answer(25)
+    if 23 <= BookID and BookID <= 26:
+        TSanswer(BookID)
+    else:
+        STSanswer(BookID)

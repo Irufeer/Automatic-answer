@@ -56,6 +56,7 @@ def Answer(BookID):
     data = cu.fetchall()
 
     for answer in data:
+        print data
         URL    = answer[1]
         UnitID = answer[2]
         TestID = answer[3]
@@ -63,18 +64,19 @@ def Answer(BookID):
         ItemID = answer[5]
         Answer = eval(answer[6])
 
-        payload = {
-            'whichAction': 'checkMyProgress',
-            'whichUnitID': UnitID,
-            'whichTestID': ''
-        }
-        post_headers = {
-            'User-Agent': user_agent,
-            'Referer': URL,
-        }
-        English_session.post(main_url + "/book/book%d/jdls3ajax.php" % BookID, data=payload)
-        url = main_url + "/book/book%d/unit_index.php?UnitID=" % BookID + UnitID
-        English_session.get(url)
+        # Can be deleted
+        # payload = {
+        #     'whichAction': 'checkMyProgress',
+        #     'whichUnitID': UnitID,
+        #     'whichTestID': ''
+        # }
+        # post_headers = {
+        #     'User-Agent': user_agent,
+        #     'Referer': URL,
+        # }
+        # English_session.post(main_url + "/book/book%d/jdls3ajax.php" % BookID, data=payload)
+        # url = main_url + "/book/book%d/unit_index.php?UnitID=" % BookID + UnitID
+        # English_session.get(url)
 
         answer_data = dict(Answer.items()+{
               'UnitID': UnitID,
@@ -86,7 +88,7 @@ def Answer(BookID):
           }.items())
 
         # Submit answers
-        English_session.post(URL, data=answer_data, headers=post_headers)
+        English_session.post(URL, data=answer_data)
 
 if __name__ == "__main__":
     # username = raw_input("Please input your StudentID: ")
@@ -103,7 +105,7 @@ if __name__ == "__main__":
     # Login in
     English_session = requests.Session()
     # signin(username, password)
-    signin('2015302407', 'nhce111')
+    signin('0000000000', 'nhce111')
 
     # print '听说教程1（23）'.decode('utf-8').encode('GBK')
     # print '听说教程2（24）'.decode('utf-8').encode('GBK')
@@ -126,4 +128,4 @@ if __name__ == "__main__":
     #     exit()
     #
     # Answer(BookID)
-    Answer(26)
+    Answer(42)

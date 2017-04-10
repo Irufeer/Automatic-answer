@@ -26,11 +26,11 @@ def signin(username, password):
     # Sign in
     res = English_session.post(login_url, data=login_data, headers=login_headers)
     if res.text.find('Loading') != -1:
-        print 'Login successfully !\n'
+        print 'Login successfully !'
     else:
         print 'Wrong StudentID or Password !'
         name = raw_input("Please input your StudentID again: ")
-        pwd = getpass.getpass("Please input your Password(Hided) again: ")
+        pwd = getpass.getpass("Please input your Password again (Hided): ")
         signin(name, pwd)
 
 
@@ -38,12 +38,17 @@ def answer(BookID, unit=[1]):
     response = English_session.get(main_url + '/login/nsindex_student.php')
     pattern = 'BID=%d&CID=(.*?)&Quiz=N">.*?' % BookID
     CID = re.findall(pattern, response.text, re.S)
-    book_url = main_url + '/book/index.php?BID=%d&CID=' % BookID + CID[0][0] + CID[0][1] + CID[0][2] + CID[0][3] + '&Quiz=N'
+    try:
+        book_url = main_url + '/book/index.php?BID=%d&CID=' % BookID + CID[0][0] + CID[0][1] + CID[0][2] + CID[0][3] + '&Quiz=N'
 
-    # Open the book
-    English_session.get(book_url)
-    English_session.get(main_url + '/template/loggingajax.php?whichURL=/login/nsindex_student.php')
-    English_session.get(main_url + '/book/book%d/index.php?Quiz=N&whichActionPage=' % BookID)
+        # Open the book
+        English_session.get(book_url)
+        English_session.get(main_url + '/template/loggingajax.php?whichURL=/login/nsindex_student.php')
+        English_session.get(main_url + '/book/book%d/index.php?Quiz=N&whichActionPage=' % BookID)
+    except:
+        print 'You have NOT REGISTER for this book or our script encountered an unknown error !'
+        print 'Please CHECK your account on the website and run the script again !'
+        return
 
     # Get the post data from database
     cx = sqlite3.connect("data.sqlite3")
@@ -54,6 +59,7 @@ def answer(BookID, unit=[1]):
         cu.execute("SELECT * FROM STSJC" + str(BookID - 38))
     data = cu.fetchall()
 
+    current_unit = '0'
     for answer in data:
         URL    = answer[1]
         UnitID = answer[2]
@@ -78,54 +84,58 @@ def answer(BookID, unit=[1]):
         # url = main_url + "/book/book%d/unit_index.php?UnitID=" % BookID + UnitID
         # English_session.get(url)
 
-        answer_data = dict(Answer.items()+{
-              'UnitID': UnitID,
-              'SectionID': TestID[0],
-              'SisterID': TestID[2],
-              'TestID': TestID,
-              'KidID': KidID,
-              'ItemID': ItemID,
-          }.items())
+        answer_data = dict(Answer.items() + {
+            'UnitID': UnitID,
+            'SectionID': TestID[0],
+            'SisterID': TestID[2],
+            'TestID': TestID,
+            'KidID': KidID,
+            'ItemID': ItemID,
+        }.items())
 
         # Submit answers
         English_session.post(URL, data=answer_data)
-
+        
+        # Mark the current unit and give hints
+        if current_unit != UnitID and current_unit != '0':
+            print 'Unit %s finished.' % current_unit
+        current_unit = UnitID
+    print 'Unit %s finished.' % current_unit
+            
 if __name__ == "__main__":
-    username = raw_input("Please input your StudentID: ")
-    if username == '':
-        print "StudentID cannot be empty!"
-        print "Please run the script again!"
-        exit()
-    password = getpass.getpass("Please input your Password(hided, nhce111 as default): ")
-    if password == '':
-        password = 'nhce111'
-    # password = raw_input("Please input your Password: ")
-    # print username, password
+    # username = raw_input("Please input your StudentID: ")
+    # if username == '':
+    #     print "StudentID cannot be empty!"
+    #     print "Please run the script again!"
+    #     exit()
+    # password = getpass.getpass("Please input your Password(hided, nhce111 as default): ")
+    # if password == '':
+    #     password = 'nhce111'
+    # # password = raw_input("Please input your Password: ")
+    # # print username, password
 
     # Login in
     English_session = requests.Session()
     signin(username, password)
-    # signin('0000000000', 'nhce111')
 
-    print '听说教程1（23）'.decode('utf-8').encode('GBK')
-    print '听说教程2（24）'.decode('utf-8').encode('GBK')
-    print '听说教程3（25）'.decode('utf-8').encode('GBK')
-    print '听说教程4（26）'.decode('utf-8').encode('GBK')
-    print '视听说教程1（39）'.decode('utf-8').encode('GBK')
-    print '视听说教程2（40）'.decode('utf-8').encode('GBK')
-    print '视听说教程3（41）'.decode('utf-8').encode('GBK')
-    print '视听说教程4（42）'.decode('utf-8').encode('GBK')
+    # print '听说教程1（23）'.decode('utf-8').encode('GBK')
+    # print '听说教程2（24）'.decode('utf-8').encode('GBK')
+    # print '听说教程3（25）'.decode('utf-8').encode('GBK')
+    # print '听说教程4（26）'.decode('utf-8').encode('GBK')
+    # print '视听说教程1（39）'.decode('utf-8').encode('GBK')
+    # print '视听说教程2（40）'.decode('utf-8').encode('GBK')
+    # print '视听说教程3（41）'.decode('utf-8').encode('GBK')
+    # print '视听说教程4（42）'.decode('utf-8').encode('GBK')
 
     BookID = 0
-    try:
-        num = raw_input("Choose the book with BookID: ")
-        BookID = int(num)
-        if BookID < 23 or 26 < BookID and BookID < 39 or BookID > 42:
-            raise ValueError('Invalid value')
-    except ValueError, e:
-        print "You have a wrong number!"
-        print "Please run the script again!"
-        exit()
+    # try:
+    #     num = raw_input("Choose the book with BookID: ")
+    #     BookID = int(num)
+    #     if BookID < 23 or 26 < BookID and BookID < 39 or BookID > 42:
+    #         raise ValueError('Invalid value')
+    # except ValueError, e:
+    #     print "You have a wrong number!"
+    #     print "Please run the script again!"
+    #     exit()
 
-    answer(BookID, [3])
-    raw_input('Finish!')
+    answer(26, [1,2,3,4,5])

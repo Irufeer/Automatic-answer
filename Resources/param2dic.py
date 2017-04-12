@@ -6,3 +6,5 @@ while(1):
         key, data = i.split('=')
         ans[key] = data.replace('+', ' ')
     print ans
+
+

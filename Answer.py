@@ -1,12 +1,14 @@
-#! /usr/bin/env python
+#! /usr/bin/env python2
 # -*- coding: utf-8 -*-
 
-import requests
-import re
 import getpass
+import re
 import sqlite3
 
+import requests
+
 main_url = 'http://10.13.54.81'
+
 user_agent = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) "
               "AppleWebKit/537.36 (KHTML, like Gecko) "
               "Chrome/36.0.1985.143 Safari/537.36")
@@ -34,7 +36,7 @@ def signin(username, password):
         signin(name, pwd)
 
 
-def answer(BookID, unit=[1]):
+def answer(BookID, unit):
     response = English_session.get(main_url + '/login/nsindex_student.php')
     pattern = 'BID=%d&CID=(.*?)&Quiz=N">.*?' % BookID
     CID = re.findall(pattern, response.text, re.S)
@@ -70,20 +72,6 @@ def answer(BookID, unit=[1]):
         ItemID = answer[5]
         Answer = eval(answer[6])
 
-        # Can be deleted
-        # payload = {
-        #     'whichAction': 'checkMyProgress',
-        #     'whichUnitID': UnitID,
-        #     'whichTestID': ''
-        # }
-        # post_headers = {
-        #     'User-Agent': user_agent,
-        #     'Referer': URL,
-        # }
-        # English_session.post(main_url + "/book/book%d/jdls3ajax.php" % BookID, data=payload)
-        # url = main_url + "/book/book%d/unit_index.php?UnitID=" % BookID + UnitID
-        # English_session.get(url)
-
         answer_data = dict(Answer.items() + {
             'UnitID': UnitID,
             'SectionID': TestID[0],
@@ -95,47 +83,65 @@ def answer(BookID, unit=[1]):
 
         # Submit answers
         English_session.post(URL, data=answer_data)
-        
+
         # Mark the current unit and give hints
         if current_unit != UnitID and current_unit != '0':
             print 'Unit %s finished.' % current_unit
         current_unit = UnitID
     print 'Unit %s finished.' % current_unit
-            
+
 if __name__ == "__main__":
-    # username = raw_input("Please input your StudentID: ")
-    # if username == '':
-    #     print "StudentID cannot be empty!"
-    #     print "Please run the script again!"
-    #     exit()
-    # password = getpass.getpass("Please input your Password(hided, nhce111 as default): ")
-    # if password == '':
-    #     password = 'nhce111'
-    # # password = raw_input("Please input your Password: ")
-    # # print username, password
+    print u'################################################'
+    print u"#大英自动刷题脚本"
+    print u"author: Rufeer"
+    print u"github: https://github.com/Irufeer/"
+    print u"################################################"
+
+    username = raw_input("Please input your StudentID: ")
+    if username == '':
+        print "StudentID cannot be empty!"
+        print "Please run the script again!"
+        exit()
+    password = getpass.getpass("Please input your Password(hided, nhce111 as default): ")
+    if password == '':
+        password = 'nhce111'
+    # password = raw_input("Please input your Password: ")
+    # print username, password
 
     # Login in
     English_session = requests.Session()
     signin(username, password)
 
-    # print '听说教程1（23）'.decode('utf-8').encode('GBK')
-    # print '听说教程2（24）'.decode('utf-8').encode('GBK')
-    # print '听说教程3（25）'.decode('utf-8').encode('GBK')
-    # print '听说教程4（26）'.decode('utf-8').encode('GBK')
-    # print '视听说教程1（39）'.decode('utf-8').encode('GBK')
-    # print '视听说教程2（40）'.decode('utf-8').encode('GBK')
-    # print '视听说教程3（41）'.decode('utf-8').encode('GBK')
-    # print '视听说教程4（42）'.decode('utf-8').encode('GBK')
+    print u'听说教程1（23）'.encode('GBK')
+    print u'听说教程2（24）'.encode('GBK')
+    print u'听说教程3（25）'.encode('GBK')
+    print u'听说教程4（26）'.encode('GBK')
+    print u'视听说教程1（39）'.encode('GBK')
+    print u'视听说教程2（40）'.encode('GBK')
+    print u'视听说教程3（41）'.encode('GBK')
+    print u'视听说教程4（42）'.encode('GBK')
 
-    BookID = 0
-    # try:
-    #     num = raw_input("Choose the book with BookID: ")
-    #     BookID = int(num)
-    #     if BookID < 23 or 26 < BookID and BookID < 39 or BookID > 42:
-    #         raise ValueError('Invalid value')
-    # except ValueError, e:
-    #     print "You have a wrong number!"
-    #     print "Please run the script again!"
-    #     exit()
+    try:
+        num = raw_input("Choose the book with BookID: ")
+        BookID = int(num)
+        if BookID not in [23, 24, 25, 26, 39, 40, 41, 42]:
+            raise ValueError
+    except ValueError:
+        print "You have a wrong BookID !"
+        print "Please run the script again !"
+        exit()
 
-    answer(26, [1,2,3,4,5])
+    try:
+        print '1: Unit 1-5'
+        print '2: Unit 6-10'
+        num = raw_input('Choose the units with the number above :')
+        num = int(num)
+        if num not in [1, 2]:
+            raise ValueError
+    except ValueError:
+        print "You have a wrong number for the units !"
+        print "Please run the script again !"
+        exit()
+
+    answer(BookID, [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]][num-1])
+    raw_input('Finish !')

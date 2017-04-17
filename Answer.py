@@ -13,6 +13,7 @@ user_agent = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) "
               "AppleWebKit/537.36 (KHTML, like Gecko) "
               "Chrome/36.0.1985.143 Safari/537.36")
 
+
 def signin(username, password):
     English_session.get(main_url)
     login_url = main_url + '/index.php?Horizon=' + English_session.cookies['Horizon']
@@ -90,11 +91,13 @@ def answer(BookID, unit):
         current_unit = UnitID
     print 'Unit %s finished.' % current_unit
 
+
 if __name__ == "__main__":
     print u'################################################'
     print u"#大英自动刷题脚本"
     print u"author: Rufeer"
     print u"github: https://github.com/Irufeer/"
+    print u"blog:   rufeer.cc"
     print u"################################################"
 
     username = raw_input("Please input your StudentID: ")
@@ -122,8 +125,8 @@ if __name__ == "__main__":
     print u'视听说教程4（42）'.encode('GBK')
 
     try:
-        num = raw_input("Choose the book with BookID: ")
-        BookID = int(num)
+        number = raw_input("Choose the book with BookID: ")
+        BookID = int(number)
         if BookID not in [23, 24, 25, 26, 39, 40, 41, 42]:
             raise ValueError
     except ValueError:
@@ -134,14 +137,14 @@ if __name__ == "__main__":
     try:
         print '1: Unit 1-5'
         print '2: Unit 6-10'
-        num = raw_input('Choose the units with the number above :')
-        num = int(num)
-        if num not in [1, 2]:
+        number = raw_input('Choose the units with the number above :')
+        number = int(number)
+        if number not in [1, 2]:
             raise ValueError
     except ValueError:
         print "You have a wrong number for the units !"
         print "Please run the script again !"
         exit()
 
-    answer(BookID, [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]][num-1])
+    answer(BookID, [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]][number-1])
     raw_input('Finish !')

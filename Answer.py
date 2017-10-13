@@ -16,7 +16,7 @@ user_agent = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) "
 
 def signin(username, password):
     English_session.get(main_url)
-    login_url = main_url + '/index.php?Horizon=' + English_session.cookies['Horizon']
+    login_url = main_url + '/index.php?NCCE=' + English_session.cookies['NCCE']
     login_data = {
         'username': username,
         'password': password,
@@ -38,16 +38,18 @@ def signin(username, password):
 
 
 def answer(BookID, unit):
-    response = English_session.get(main_url + '/login/nsindex_student.php')
-    pattern = 'BID=%d&CID=(.*?)&Quiz=N">.*?' % BookID
+    response = English_session.get(main_url + '/login/hpindex_student.php')
+    
+    pattern = 'BookID=%d&ClassID=(.*?)&Quiz=N".*?' % BookID
     CID = re.findall(pattern, response.text, re.S)
     try:
-        book_url = main_url + '/book/index.php?BID=%d&CID=' % BookID + CID[0][0] + CID[0][1] + CID[0][2] + CID[0][3] + '&Quiz=N'
-
+        book_url = main_url + '/book/index.php?BookID=%d&ClassID=' % BookID + CID[0] + '&Quiz=N'
+        
         # Open the book
         English_session.get(book_url)
         English_session.get(main_url + '/template/loggingajax.php?whichURL=/login/nsindex_student.php')
         English_session.get(main_url + '/book/book%d/index.php?Quiz=N&whichActionPage=' % BookID)
+        
     except:
         print 'You have NOT REGISTER for this book or our script encountered an unknown error !'
         print 'Please CHECK your account on the website and run the script again !'
@@ -61,7 +63,7 @@ def answer(BookID, unit):
     else:
         cu.execute("SELECT * FROM STSJC" + str(BookID - 38))
     data = cu.fetchall()
-
+    
     current_unit = '0'
     for answer in data:
         URL    = answer[1]
@@ -94,10 +96,10 @@ def answer(BookID, unit):
 
 if __name__ == "__main__":
     print u'################################################'
-    print u"#大英自动刷题脚本"
-    print u"author: Rufeer"
-    print u"github: https://github.com/Irufeer/"
-    print u"blog:   rufeer.cc"
+    print u"大英自动刷题脚本"
+    print u"Author: Rufeer"
+    print u"Github: https://github.com/Irufeer/"
+    print u"Blog:   http://rufeer.cc"
     print u"################################################"
 
     username = raw_input("Please input your StudentID: ")
@@ -147,4 +149,5 @@ if __name__ == "__main__":
         exit()
 
     answer(BookID, [[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]][number-1])
+    # answer(41, [1,2,3,4,5])
     raw_input('Finish !')
